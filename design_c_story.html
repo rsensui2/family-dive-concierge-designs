@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Dive Concierge - Story</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Noto+Serif+JP:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #004D40;
+            /* Deep Teal */
+            --secondary: #00695C;
+            --accent: #B2DFDB;
+            --text: #263238;
+            --bg: #F5F7F8;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Noto Serif JP', serif;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+            line-height: 2;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-weight: 500;
+            letter-spacing: 0.1em;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            background-image: url('https://placehold.co/1920x1080/004D40/FFFFFF?text=Deep+Blue+Connection');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 77, 64, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 4rem;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        /* Narrative Section */
+        .narrative {
+            padding: 8rem 0;
+            background: var(--white);
+        }
+
+        .narrative-block {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 6rem;
+        }
+
+        .narrative-block:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .narrative-img {
+            flex: 1;
+            height: 500px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .narrative-text {
+            flex: 1;
+        }
+
+        .narrative-text h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .narrative-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #546E7A;
+        }
+
+        /* Quote */
+        .quote-section {
+            padding: 6rem 0;
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .quote-section blockquote {
+            font-size: 1.8rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        .quote-section cite {
+            display: block;
+            margin-top: 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Details */
+        .details {
+            padding: 8rem 0;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1px;
+            background: #ddd;
+            border: 1px solid #ddd;
+        }
+
+        .detail-item {
+            background: var(--white);
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .detail-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* CTA */
+        .cta {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-image: url('https://placehold.co/1920x800/00695C/FFFFFF?text=Begin+Your+Story');
+            background-size: cover;
+            color: var(--white);
+            position: relative;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 1px solid var(--white);
+            color: var(--white);
+            padding: 1rem 3rem;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.1em;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .narrative-block {
+                flex-direction: column;
+            }
+
+            .narrative-block:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <p>Family Dive Concierge</p>
+            <h1>海と、家族と、<br>つながる時間。</h1>
+        </div>
+    </header>
+
+    <section class="narrative">
+        <div class="container">
+            <div class="narrative-block">
+                <div class="narrative-img"
+                    style="background-image: url('https://placehold.co/600x800/ECEFF1/004D40?text=Child+Holding+Shell');">
+                </div>
+                <div class="narrative-text">
+                    <h2>罪悪感を、感謝へ。</h2>
+                    <p>「子供を置いて自分だけ楽しむなんて...」<br>その優しさが、あなたのダイビング器材を物置に眠らせていました。</p>
+                    <p>でも、もし子供たちがあなた以上に海を楽しんでいるとしたら？<br>それは「罪悪感」ではなく、「共有する喜び」に変わります。</p>
+                </div>
+            </div>
+
+            <div class="narrative-block">
+                <div class="narrative-img"
+                    style="background-image: url('https://placehold.co/600x800/004D40/FFFFFF?text=Diver+Underwater');">
+                </div>
+                <div class="narrative-text">
+                    <h2>パパは深海へ、<br>子供は渚へ。</h2>
+                    <p>あなたが60分の海中旅行をしている間、お子様は専属の「オーシャン・ナニー」と共に、海辺の大冒険に出かけます。</p>
+                    <p>戻ってきた時、お互いの冒険譚を語り合う。<br>そんな新しい家族の休日を。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <div class="container">
+            <blockquote>
+                "パパ、行ってらっしゃい！"<br>その言葉が、最高のダイビング・ギアになる。
+            </blockquote>
+        </div>
+    </section>
+
+    <section class="details">
+        <div class="container">
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <h3>01. Ocean Nanny</h3>
+                    <p>保育士資格とダイビング知識を持つプロが、お子様の年齢に合わせた自然体験を提供します。</p>
+                </div>
+                <div class="detail-item">
+                    <h3>02. Mom's Retreat</h3>
+                    <p>ダイビングをしない奥様には、極上のスパタイムを。波音を聞きながら、心身ともにリラックス。</p>
+                </div>
+                <div class="detail-item">
+                    <h3>03. Logbook Memory</h3>
+                    <p>パパのログブックと、子供の発見ログ。二つの記録が、家族のかけがえのない宝物に。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Your Story Begins Here</h2>
+            <p>あなただけの旅を、プランニングします。</p>
+            <a href="#" class="btn-outline">お問い合わせ</a>
+        </div>
+    </section>
+
+</body>
+
+</html>

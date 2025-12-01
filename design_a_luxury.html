@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Dive Concierge - Luxury Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@300;400;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0F172A;
+            /* Deep Navy */
+            --accent-color: #C5A059;
+            /* Muted Gold */
+            --text-color: #334155;
+            --bg-color: #FAFAF9;
+            /* Warm White */
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Zen Kaku Gothic New', 'Lato', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.4)), url('https://placehold.co/1920x1080/0F172A/C5A059?text=Luxury+Resort+Pool+at+Sunset');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            letter-spacing: 0.05em;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background-color: var(--accent-color);
+            color: var(--white);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-gold:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+        /* Concept Section */
+        .concept {
+            padding: 8rem 0;
+            text-align: center;
+            background-color: var(--white);
+        }
+
+        .concept h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .concept h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .concept p {
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Solutions Grid */
+        .solutions {
+            padding: 6rem 0;
+            background-color: var(--bg-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Image Break */
+        .image-break {
+            height: 60vh;
+            background-image: url('https://placehold.co/1920x800/C5A059/FFFFFF?text=Relaxing+Spa+Atmosphere');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-break-content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 3rem;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        /* Scenario */
+        .scenario {
+            padding: 8rem 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            align-items: flex-start;
+        }
+
+        .time {
+            min-width: 100px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .event {
+            padding-left: 2rem;
+            border-left: 1px solid #ddd;
+            padding-bottom: 2rem;
+        }
+
+        .event h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta-box {
+            background: var(--white);
+            color: var(--text-color);
+            padding: 4rem;
+            max-width: 800px;
+            margin: -8rem auto 4rem;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-box {
+                margin: 2rem;
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Family Dive Concierge</h1>
+            <p>パパは海へ、子供は冒険へ。<br>罪悪感ゼロの、極上のダイビングトリップ。</p>
+            <a href="#" class="btn-gold">View Plans</a>
+        </div>
+    </section>
+
+    <section class="concept">
+        <div class="container">
+            <h2>Concept</h2>
+            <p>「子供が小さいから」と諦めていた海へ。</p>
+            <p>私たちは、ダイビング専門のベビーシッターとキッズプログラムを完備した、<br>ファミリー特化型のダイビング旅行手配サービスです。</p>
+            <p>家族全員が「行ってよかった」と思える、新しい家族旅行の形を提案します。</p>
+        </div>
+    </section>
+
+    <section class="solutions">
+        <div class="container">
+            <div class="grid">
+                <div class="card">
+                    <span class="card-icon">✦</span>
+                    <h3>Kids Ocean Program</h3>
+                    <p>パパが潜っている間、お子様はプロの「オーシャン・ナニー」と共に海辺の自然体験へ。ただ待つのではなく、子供にとっても大冒険の時間です。</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">✦</span>
+                    <h3>Mom's Relax Time</h3>
+                    <p>ダイビングをしない奥様には、極上のスパやカフェタイムを。育児から解放される、優雅なひとときをお約束します。</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">✦</span>
+                    <h3>Family Logistics</h3>
+                    <p>オムツから機材まで、全て現地にご用意。重い荷物は必要ありません。家族の手を引いて、身軽に空港へお越しください。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="image-break">
+        <div class="image-break-content">
+            <h3>"パパ、行ってらっしゃい！"</h3>
+            <p>その言葉が、最高のダイビング・ギアになる。<br>家族みんなが笑顔になれる旅を。</p>
+        </div>
+    </div>
+
+    <section class="scenario">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2>A Perfect Day</h2>
+                <p>ある家族の1日</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">09:00</div>
+                    <div class="event">
+                        <h4>Departure</h4>
+                        <p>ホテルロビー集合。パパはボートへ、ママはスパへ、子供はナニーとビーチへ。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">10:00</div>
+                    <div class="event">
+                        <h4>Activity</h4>
+                        <p>【パパ】慶良間ブルーの海でドリフトダイビング。<br>【子供】ビーチで綺麗な貝殻拾い。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">12:00</div>
+                    <div class="event">
+                        <h4>Lunch</h4>
+                        <p>家族全員でランチ。パパは海の話を、子供は貝殻の話を。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">19:00</div>
+                    <div class="event">
+                        <h4>Memory</h4>
+                        <p>夕食時、ナニーが撮影した「お子様の大冒険アルバム」をプレゼント。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="cta-box">
+            <h2>Start Your Journey</h2>
+            <p>あなたのご家族だけの、最高の週末をご提案します。</p>
+            <br>
+            <a href="#" class="btn-gold"
+                style="background: var(--primary-color); border-color: var(--primary-color);">無料プランニング相談</a>
+        </div>
+        <div class="container">
+            <p>&copy; 2025 Family Dive Concierge. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

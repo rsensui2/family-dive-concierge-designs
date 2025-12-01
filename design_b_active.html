@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Dive Concierge - Active Family</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00B4D8;
+            /* Bright Blue */
+            --secondary: #FFD166;
+            /* Sunny Yellow */
+            --accent: #EF476F;
+            /* Coral Pink */
+            --text: #2B2D42;
+            --bg: #E0F7FA;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            color: var(--text);
+            background-color: var(--white);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero */
+        .hero {
+            background-color: var(--primary);
+            background-image: url('https://placehold.co/1920x1080/48CAE4/FFFFFF?text=Family+Fun+Splash');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: var(--white);
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            transform: scaleX(1.5);
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 3rem;
+            border-radius: 30px;
+            max-width: 600px;
+            margin-left: 10%;
+            box-shadow: 0 10px 0 rgba(0, 0, 0, 0.1);
+            z-index: 2;
+            transform: rotate(-2deg);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .btn-pop {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--text);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 0 #F59E0B;
+            transition: transform 0.1s;
+        }
+
+        .btn-pop:active {
+            transform: translateY(5px);
+            box-shadow: none;
+        }
+
+        /* Features */
+        .features {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            display: inline-block;
+            background: var(--secondary);
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+            transform: rotate(2deg);
+            color: var(--text);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            border: 4px solid var(--white);
+            box-shadow: 0 10px 20px rgba(0, 180, 216, 0.2);
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Steps */
+        .steps {
+            background: var(--primary);
+            padding: 6rem 0;
+            color: var(--white);
+            position: relative;
+        }
+
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: var(--primary);
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            transform: scaleX(1.5);
+            z-index: -1;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            color: var(--text);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .step-num {
+            background: var(--secondary);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 6rem 0;
+            background-image: url('https://placehold.co/1920x600/FFD166/EF476F?text=Start+Adventure');
+            background-size: cover;
+        }
+
+        .cta-content {
+            background: var(--white);
+            display: inline-block;
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                margin: 0 1rem;
+                transform: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>パパ、<br>行ってらっしゃい！</h1>
+            <p>その言葉が、最高のダイビング・ギアになる。<br>家族みんなで楽しむ、新しい海旅。</p>
+            <a href="#" class="btn-pop">プランを見る！</a>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">みんなが主役！</h2>
+            <div class="card-grid">
+                <div class="feature-card">
+                    <img src="https://placehold.co/600x400/EF476F/FFFFFF?text=Kids+Adventure" alt="Kids">
+                    <h3>Kids Adventure</h3>
+                    <p>パパが潜っている間、ボクたちは冒険だ！<br>ヤドカリ探しに、初めてのスノーケリング。</p>
+                </div>
+                <div class="feature-card">
+                    <img src="https://placehold.co/600x400/00B4D8/FFFFFF?text=Dad's+Dive" alt="Dad">
+                    <h3>Dad's Dive</h3>
+                    <p>久しぶりの海、重い機材は全部お任せ。<br>罪悪感ゼロで、慶良間ブルーへドボン！</p>
+                </div>
+                <div class="feature-card">
+                    <img src="https://placehold.co/600x400/FFD166/2B2D42?text=Mom's+Relax" alt="Mom">
+                    <h3>Mom's Relax</h3>
+                    <p>ママだって休みたい。<br>海辺のカフェで、極上のひとり時間。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="steps">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem; color: #fff;">ある家族の1日</h2>
+            <div class="step-item">
+                <div class="step-num">09:00</div>
+                <div>
+                    <h3>Let's Go!</h3>
+                    <p>ホテル出発！パパはボートへ、ボクたちはナニーとビーチへ！</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">10:00</div>
+                <div>
+                    <h3>Enjoy!</h3>
+                    <p>パパは海の中で魚とダンス。ボクは砂浜でお城作り！</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">12:00</div>
+                <div>
+                    <h3>Lunch Time</h3>
+                    <p>「パパ見て！」拾った貝殻を自慢しながら、みんなでランチ。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-content">
+            <h2>家族みんなで、海へ行こう。</h2>
+            <p>あなたのご家族にぴったりのプランを作ります。</p>
+            <br>
+            <a href="#" class="btn-pop"
+                style="background: var(--accent); color: #fff; box-shadow: 0 5px 0 #C13555;">無料相談スタート</a>
+        </div>
+    </section>
+
+</body>
+
+</html>
